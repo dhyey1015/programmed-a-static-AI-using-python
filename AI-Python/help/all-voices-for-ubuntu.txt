@@ -1,0 +1,598 @@
+Voice 0:
+ - ID: afrikaans
+ - Name: afrikaans
+ - Languages: [b'\x05af']
+ - Gender: male
+ - Age: None
+
+
+Voice 1:
+ - ID: aragonese
+ - Name: aragonese
+ - Languages: [b'\x05an']
+ - Gender: male
+ - Age: None
+
+
+Voice 2:
+ - ID: bulgarian
+ - Name: bulgarian
+ - Languages: [b'\x05bg']
+ - Gender: None
+ - Age: None
+
+
+Voice 3:
+ - ID: bengali
+ - Name: bengali
+ - Languages: [b'\x05bn']
+ - Gender: male
+ - Age: None
+
+
+Voice 4:
+ - ID: bosnian
+ - Name: bosnian
+ - Languages: [b'\x05bs']
+ - Gender: male
+ - Age: None
+
+
+Voice 5:
+ - ID: catalan
+ - Name: catalan
+ - Languages: [b'\x05ca']
+ - Gender: male
+ - Age: None
+
+
+Voice 6:
+ - ID: czech
+ - Name: czech
+ - Languages: [b'\x05cs']
+ - Gender: male
+ - Age: None
+
+
+Voice 7:
+ - ID: welsh
+ - Name: welsh
+ - Languages: [b'\x05cy']
+ - Gender: male
+ - Age: None
+
+
+Voice 8:
+ - ID: danish
+ - Name: danish
+ - Languages: [b'\x05da']
+ - Gender: male
+ - Age: None
+
+
+Voice 9:
+ - ID: german
+ - Name: german
+ - Languages: [b'\x05de']
+ - Gender: male
+ - Age: None
+
+
+Voice 10:
+ - ID: greek
+ - Name: greek
+ - Languages: [b'\x05el']
+ - Gender: male
+ - Age: None
+
+
+Voice 11:
+ - ID: default
+ - Name: default
+ - Languages: [b'\x05en']
+ - Gender: male
+ - Age: None
+
+
+Voice 12:
+ - ID: english
+ - Name: english
+ - Languages: [b'\x02en-gb']
+ - Gender: male
+ - Age: None
+
+
+Voice 13:
+ - ID: en-scottish
+ - Name: en-scottish
+ - Languages: [b'\x05en-sc']
+ - Gender: male
+ - Age: None
+
+
+Voice 14:
+ - ID: english-north
+ - Name: english-north
+ - Languages: [b'\x05en-uk-north']
+ - Gender: male
+ - Age: None
+
+
+Voice 15:
+ - ID: english_rp
+ - Name: english_rp
+ - Languages: [b'\x05en-uk-rp']
+ - Gender: male
+ - Age: None
+
+
+Voice 16:
+ - ID: english_wmids
+ - Name: english_wmids
+ - Languages: [b'\x05en-uk-wmids']
+ - Gender: male
+ - Age: None
+
+
+Voice 17:
+ - ID: english-us
+ - Name: english-us
+ - Languages: [b'\x02en-us']
+ - Gender: male
+ - Age: None
+
+
+Voice 18:
+ - ID: en-westindies
+ - Name: en-westindies
+ - Languages: [b'\x05en-wi']
+ - Gender: male
+ - Age: None
+
+
+Voice 19:
+ - ID: esperanto
+ - Name: esperanto
+ - Languages: [b'\x05eo']
+ - Gender: male
+ - Age: None
+
+
+Voice 20:
+ - ID: spanish
+ - Name: spanish
+ - Languages: [b'\x05es']
+ - Gender: male
+ - Age: None
+
+
+Voice 21:
+ - ID: spanish-latin-am
+ - Name: spanish-latin-am
+ - Languages: [b'\x05es-la']
+ - Gender: male
+ - Age: None
+
+
+Voice 22:
+ - ID: estonian
+ - Name: estonian
+ - Languages: [b'\x05et']
+ - Gender: None
+ - Age: None
+
+
+Voice 23:
+ - ID: basque-test
+ - Name: basque-test
+ - Languages: [b'\x05eu']
+ - Gender: None
+ - Age: None
+
+
+Voice 24:
+ - ID: Persian+English-UK
+ - Name: Persian+English-UK
+ - Languages: [b'\x05fa']
+ - Gender: None
+ - Age: None
+
+
+Voice 25:
+ - ID: Persian+English-US
+ - Name: Persian+English-US
+ - Languages: [b'\x05fa']
+ - Gender: None
+ - Age: None
+
+
+Voice 26:
+ - ID: persian-pinglish
+ - Name: persian-pinglish
+ - Languages: [b'\x05fa-pin']
+ - Gender: None
+ - Age: None
+
+
+Voice 27:
+ - ID: finnish
+ - Name: finnish
+ - Languages: [b'\x05fi']
+ - Gender: male
+ - Age: None
+
+
+Voice 28:
+ - ID: french-Belgium
+ - Name: french-Belgium
+ - Languages: [b'\x05fr-be']
+ - Gender: male
+ - Age: None
+
+
+Voice 29:
+ - ID: french
+ - Name: french
+ - Languages: [b'\x05fr-fr']
+ - Gender: male
+ - Age: None
+
+
+Voice 30:
+ - ID: irish-gaeilge
+ - Name: irish-gaeilge
+ - Languages: [b'\x05ga']
+ - Gender: None
+ - Age: None
+
+
+Voice 31:
+ - ID: greek-ancient
+ - Name: greek-ancient
+ - Languages: [b'\x05grc']
+ - Gender: male
+ - Age: None
+
+
+Voice 32:
+ - ID: gujarati-test
+ - Name: gujarati-test
+ - Languages: [b'\x05gu']
+ - Gender: None
+ - Age: None
+
+
+Voice 33:
+ - ID: hindi
+ - Name: hindi
+ - Languages: [b'\x05hi']
+ - Gender: male
+ - Age: None
+
+
+Voice 34:
+ - ID: croatian
+ - Name: croatian
+ - Languages: [b'\x05hr']
+ - Gender: male
+ - Age: None
+
+
+Voice 35:
+ - ID: hungarian
+ - Name: hungarian
+ - Languages: [b'\x05hu']
+ - Gender: male
+ - Age: None
+
+
+Voice 36:
+ - ID: armenian
+ - Name: armenian
+ - Languages: [b'\x05hy']
+ - Gender: male
+ - Age: None
+
+
+Voice 37:
+ - ID: armenian-west
+ - Name: armenian-west
+ - Languages: [b'\x05hy-west']
+ - Gender: male
+ - Age: None
+
+
+Voice 38:
+ - ID: interlingua
+ - Name: interlingua
+ - Languages: [b'\x05ia']
+ - Gender: None
+ - Age: None
+
+
+Voice 39:
+ - ID: indonesian
+ - Name: indonesian
+ - Languages: [b'\x05id']
+ - Gender: male
+ - Age: None
+
+
+Voice 40:
+ - ID: icelandic
+ - Name: icelandic
+ - Languages: [b'\x05is']
+ - Gender: male
+ - Age: None
+
+
+Voice 41:
+ - ID: italian
+ - Name: italian
+ - Languages: [b'\x05it']
+ - Gender: male
+ - Age: None
+
+
+Voice 42:
+ - ID: lojban
+ - Name: lojban
+ - Languages: [b'\x05jbo']
+ - Gender: None
+ - Age: None
+
+
+Voice 43:
+ - ID: georgian
+ - Name: georgian
+ - Languages: [b'\x05ka']
+ - Gender: None
+ - Age: None
+
+
+Voice 44:
+ - ID: kannada
+ - Name: kannada
+ - Languages: [b'\x05kn']
+ - Gender: None
+ - Age: None
+
+
+Voice 45:
+ - ID: kurdish
+ - Name: kurdish
+ - Languages: [b'\x05ku']
+ - Gender: male
+ - Age: None
+
+
+Voice 46:
+ - ID: latin
+ - Name: latin
+ - Languages: [b'\x05la']
+ - Gender: male
+ - Age: None
+
+
+Voice 47:
+ - ID: lingua_franca_nova
+ - Name: lingua_franca_nova
+ - Languages: [b'\x05lfn']
+ - Gender: male
+ - Age: None
+
+
+Voice 48:
+ - ID: lithuanian
+ - Name: lithuanian
+ - Languages: [b'\x05lt']
+ - Gender: male
+ - Age: None
+
+
+Voice 49:
+ - ID: latvian
+ - Name: latvian
+ - Languages: [b'\x05lv']
+ - Gender: male
+ - Age: None
+
+
+Voice 50:
+ - ID: macedonian
+ - Name: macedonian
+ - Languages: [b'\x05mk']
+ - Gender: male
+ - Age: None
+
+
+Voice 51:
+ - ID: malayalam
+ - Name: malayalam
+ - Languages: [b'\x05ml']
+ - Gender: male
+ - Age: None
+
+
+Voice 52:
+ - ID: malay
+ - Name: malay
+ - Languages: [b'\x05ms']
+ - Gender: male
+ - Age: None
+
+
+Voice 53:
+ - ID: nepali
+ - Name: nepali
+ - Languages: [b'\x05ne']
+ - Gender: male
+ - Age: None
+
+
+Voice 54:
+ - ID: dutch
+ - Name: dutch
+ - Languages: [b'\x05nl']
+ - Gender: male
+ - Age: None
+
+
+Voice 55:
+ - ID: norwegian
+ - Name: norwegian
+ - Languages: [b'\x05no']
+ - Gender: male
+ - Age: None
+
+
+Voice 56:
+ - ID: punjabi
+ - Name: punjabi
+ - Languages: [b'\x05pa']
+ - Gender: None
+ - Age: None
+
+
+Voice 57:
+ - ID: polish
+ - Name: polish
+ - Languages: [b'\x05pl']
+ - Gender: male
+ - Age: None
+
+
+Voice 58:
+ - ID: brazil
+ - Name: brazil
+ - Languages: [b'\x05pt-br']
+ - Gender: male
+ - Age: None
+
+
+Voice 59:
+ - ID: portugal
+ - Name: portugal
+ - Languages: [b'\x05pt-pt']
+ - Gender: male
+ - Age: None
+
+
+Voice 60:
+ - ID: romanian
+ - Name: romanian
+ - Languages: [b'\x05ro']
+ - Gender: male
+ - Age: None
+
+
+Voice 61:
+ - ID: russian
+ - Name: russian
+ - Languages: [b'\x05ru']
+ - Gender: male
+ - Age: None
+
+
+Voice 62:
+ - ID: slovak
+ - Name: slovak
+ - Languages: [b'\x05sk']
+ - Gender: male
+ - Age: None
+
+
+Voice 63:
+ - ID: albanian
+ - Name: albanian
+ - Languages: [b'\x05sq']
+ - Gender: male
+ - Age: None
+
+
+Voice 64:
+ - ID: serbian
+ - Name: serbian
+ - Languages: [b'\x05sr']
+ - Gender: male
+ - Age: None
+
+
+Voice 65:
+ - ID: swedish
+ - Name: swedish
+ - Languages: [b'\x05sv']
+ - Gender: male
+ - Age: None
+
+
+Voice 66:
+ - ID: swahili-test
+ - Name: swahili-test
+ - Languages: [b'\x05sw']
+ - Gender: male
+ - Age: None
+
+
+Voice 67:
+ - ID: tamil
+ - Name: tamil
+ - Languages: [b'\x05ta']
+ - Gender: male
+ - Age: None
+
+
+Voice 68:
+ - ID: telugu-test
+ - Name: telugu-test
+ - Languages: [b'\x05te']
+ - Gender: None
+ - Age: None
+
+
+Voice 69:
+ - ID: turkish
+ - Name: turkish
+ - Languages: [b'\x05tr']
+ - Gender: male
+ - Age: None
+
+
+Voice 70:
+ - ID: vietnam
+ - Name: vietnam
+ - Languages: [b'\x05vi']
+ - Gender: male
+ - Age: None
+
+
+Voice 71:
+ - ID: vietnam_hue
+ - Name: vietnam_hue
+ - Languages: [b'\x05vi-hue']
+ - Gender: male
+ - Age: None
+
+
+Voice 72:
+ - ID: vietnam_sgn
+ - Name: vietnam_sgn
+ - Languages: [b'\x05vi-sgn']
+ - Gender: male
+ - Age: None
+
+
+Voice 73:
+ - ID: Mandarin
+ - Name: Mandarin
+ - Languages: [b'\x05zh']
+ - Gender: male
+ - Age: None
+
+
+Voice 74:
+ - ID: cantonese
+ - Name: cantonese
+ - Languages: [b'\x05zh-yue']
+ - Gender: male
+ - Age: None
