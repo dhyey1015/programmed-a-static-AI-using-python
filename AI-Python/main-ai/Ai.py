@@ -14,8 +14,8 @@ from googleapiclient.discovery import build
 
 engine = pyttsx3.init('espeak') #engine = pyttsx3.init('sapi5')------>for windows user
 voices = engine.getProperty('voices')
-engine.setProperty('voice','english')
-engine.setProperty('rate', 120)
+engine.setProperty('voice',voices[28].id)
+engine.setProperty('rate', 150)
 
 r = sr.Recognizer()
 
@@ -171,7 +171,7 @@ def listen_and_respond():
 #play music and video section  
               
             elif 'play music' in command.lower():
-                music = 'C:\\Users\dhyey\OneDrive\Desktop\songs'
+                music = '/home/dhyey/Music/songs'
                 song = os.listdir(music)
                 f = random.choice(song)
                 print(song)
