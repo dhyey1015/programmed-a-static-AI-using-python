@@ -24,7 +24,7 @@ def listen_and_respond():
 
             command = r.recognize_google(audio, language='en-in')
             print(f"You said: {command}")
-        
+            
             if 'hello' in command.lower():
                 speak('Hello, how can I help you today?')      
             elif 'who are you' in command.lower():
