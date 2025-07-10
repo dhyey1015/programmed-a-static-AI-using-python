@@ -1,17 +1,22 @@
 import speech_recognition as sr
 import pyttsx3
-
+import time
 
 engine = pyttsx3.init('espeak')
-engine.setProperty('rate', 150) 
+voices = engine.getProperty('voices')
+engine.setProperty('voice', voices[29].id)
+engine.setProperty('rate', 160)
+engine.setProperty('volume', 1.0)
+
 
 def speak(text):
-    """Speak out the provided text using pyttsx3."""
+    """Speak out the text using pyttsx3."""
     engine.say(text)
     engine.runAndWait()
+    time.sleep(0.05)
     
 def listen_and_respond():
-    """Listen to the microphone input and respond based on predefined commands."""
+    """Listen to the microphone input and respond"""
     r = sr.Recognizer()
     
     while True:
