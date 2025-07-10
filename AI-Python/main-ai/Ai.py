@@ -5,24 +5,23 @@ import wikipedia
 import webbrowser
 import os
 import random
-
+import time
 from googleapiclient.discovery import build
 
-
-
-
+# TODO: shift to GTTS(Google text-to-speech) for better performance of voice
 
 engine = pyttsx3.init('espeak') #engine = pyttsx3.init('sapi5')------>for windows user
 voices = engine.getProperty('voices')
-engine.setProperty('voice',voices[28].id)
-engine.setProperty('rate', 150)
+engine.setProperty('voice',voices[29].id)
+engine.setProperty('rate', 160)
+engine.setProperty('volume', 1.0) 
 
 r = sr.Recognizer()
 
 def speak(text):
     engine.say(text)
     engine.runAndWait()
-
+    time.sleep(0.05)
 
 def wishMe():
     hour= int(datetime.datetime.now().hour)
@@ -49,9 +48,10 @@ class FileCreatorAI:
     def __init__(self):
         self.files = {}
 
-    def create_file(self, file_name, extension, content):
+    def create_file(self, file_name, extension, content, create_path):
         full_file_name = f"{file_name}.{extension}"
-        with open(full_file_name, 'w') as file:
+        full_file_path = os.path.join(create_path, full_file_name)
+        with open(full_file_path, 'w') as file:
             file.write(content)
         self.files[full_file_name] = content
         return f"File '{full_file_name}' created successfully."
@@ -64,19 +64,32 @@ class FileCreatorAI:
             return f"File '{file_name}' saved at '{full_file_path}'."
         else:
             return f"File '{file_name}' not found."
-        
-def recognize_speech():
 
+def recognize_speech_and_get_command():
     with sr.Microphone() as source:
         audio = r.listen(source)
-
-
-
+    try: 
+        command = r.recognize_google(audio, language='en-in')
+        print(f"You said : {command}")
+        return command.lower()
+    except sr.UnknownValueError:
+        print("Problem: Did not detect the voice clearly.")
+        return
+    except sr.RequestError:
+        speak("Request failed. Please check your internet connection.")
+        return
         
-    
+def recognize_speech():
+    with sr.Microphone() as source:
+        audio = r.listen(source)
+        command = r.recognize_google(audio, language='en-in')
+        if not command:
+            speak("I didn't catch that. Please repeat.")
+        print(f"You said:{command}")
         
 def listen_and_respond():
-    
+    r = sr.Recognizer()
+
     while True:
         with sr.Microphone() as source:
             print("listening...")
@@ -106,18 +119,58 @@ def listen_and_respond():
             
 # create file and save file
             elif 'create file' in command.lower():
-                
-                #speak("tell me the name of file")
-                file_name = r.recognize_google(audio)
-                #speak("tell me the extension of file")          
-                extension = r.recognize_google(audio)
-                content = input("Enter file content: ")
-                print(FileCreatorAI().create_file(file_name, extension, content))
+                #file name 
+                while True:
+                    speak("tell me the name of file")
+                    file_name = recognize_speech_and_get_command()
+                    if not file_name:
+                        speak("I didn't catch that. Please repeat.")
+                    else:
+                         break
+                #file extension
+                while True:
+                    speak("tell me the extension of file")          
+                    extension = recognize_speech_and_get_command()
+                    if not extension:
+                         speak("I didn't catch that. Please repeat.")
+                    else: 
+                         break
+                #TODO: custom path
+                #file path 
+                BASE_PATH = "/home/dhyey"
+                save_path = None
+                while not save_path : 
+                    speak("Where do you want to save the file?")
+                    print("Options: Desktop, Documents, Downloads, Music, Pictures, Videos")
+                    save_path_choice = recognize_speech_and_get_command()
+                    
+                    if not save_path_choice:
+                        speak("I didn't catch that. Please repeat.")
+                        continue
+                    if 'desktop' in save_path_choice:
+                        save_path = os.path.join(BASE_PATH, 'Desktop')
+                    elif 'documents' in save_path_choice:
+                        save_path = os.path.join(BASE_PATH, 'Documents')
+                    elif 'downloads' in save_path_choice:
+                        save_path = os.path.join(BASE_PATH, 'Downloads')
+                    elif 'music' in save_path_choice:
+                        save_path = os.path.join(BASE_PATH, 'Music')
+                    elif 'pictures' in save_path_choice:
+                        save_path = os.path.join(BASE_PATH, 'Pictures')
+                    elif 'videos' in save_path_choice:
+                        save_path = os.path.join(BASE_PATH, 'Videos')
+                    else:
+                        speak("Invalid choice. Please try again.")
 
-            elif command == 'save':
-                file_name = input("Enter file name to save: ")
-                save_path = input("Enter save path: ")
-                print(FileCreatorAI().save_file(file_name, save_path))
+                speak("Please type the content for the file.")
+                content = input("Enter file content: ")
+                creator = FileCreatorAI()
+                print(creator.create_file(file_name, extension, content, save_path))
+
+            # elif command == 'save':
+            #     file_name = input("Enter file name to save: ")
+            #     save_path = input("Enter save path: ")
+            #     print(FileCreatorAI().save_file(file_name, save_path))
             
 # greetings secition 
             
@@ -144,7 +197,7 @@ def listen_and_respond():
                     speak(f"sir the date is{date}")
                  
 #search engine         
-                        
+            # TODO: Google search instead of wikipedia
             elif 'wikipedia' in command.lower():
                 speak('searching wikipedia...')
                 command.lower().replace('wikipedia'," ")
@@ -177,27 +230,27 @@ def listen_and_respond():
                 print(song)
                 os.startfile(os.path.join(music,f))
                 
-# open application section                  
+#TODO: make work open application section for linux                 
                 
-            elif 'open vs code' in command.lower():
-                vscode= 'C:\\Users\\dhyey\\AppData\\Local\\Programs\\Microsoft VS Code\\Code.exe'
-                os.startfile(vscode)
+            # elif 'open vs code' in command.lower():
+            #     vscode= 'C:\\Users\\dhyey\\AppData\\Local\\Programs\\Microsoft VS Code\\Code.exe'
+            #     os.startfile(vscode)
                 
-            elif 'open chrome' in command.lower():
-                chrome= 'C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe'
-                os.startfile(chrome)
+            # elif 'open chrome' in command.lower():
+            #     chrome= 'C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe'
+            #     os.startfile(chrome)
                 
-            elif 'open word' in command.lower():
-                word = 'C:\\Program Files\\Microsoft Office\\root\\Office16\\WINWORD.EXE"'
-                os.startfile(word)
+            # elif 'open word' in command.lower():
+            #     word = 'C:\\Program Files\\Microsoft Office\\root\\Office16\\WINWORD.EXE"'
+            #     os.startfile(word)
                 
-            elif 'open excel' in command.lower():
-                excel = '"C:\\Program Files\\Microsoft Office\\root\\Office16\\EXCEL.EXE""'
-                os.startfile(excel)
+            # elif 'open excel' in command.lower():
+            #     excel = '"C:\\Program Files\\Microsoft Office\\root\\Office16\\EXCEL.EXE""'
+            #     os.startfile(excel)
                 
-            elif 'open power point' in command.lower():
-                powerp = "C:\\Program Files\\Microsoft Office\\root\\Office16\\POWERPNT.EXE"
-                os.startfile(powerp)
+            # elif 'open power point' in command.lower():
+            #     powerp = "C:\\Program Files\\Microsoft Office\\root\\Office16\\POWERPNT.EXE"
+            #     os.startfile(powerp)
                 
 #to send emails  
             
