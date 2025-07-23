@@ -8,7 +8,18 @@ import random
 import time
 from googleapiclient.discovery import build
 
-# TODO: shift to GTTS(Google text-to-speech) for better performance of voice
+# gtts and playsound imports
+import tempfile
+from gtts import gTTS
+from playsound3 import playsound
+
+# file imports
+from wishMe import *
+
+# Global settings for text-to-speech
+USE_GTTS = True  # Set to True to use gTTS, False to use pyttsx3
+USE_PLAYSOUND = True  # Set to True to use playsound, False to use
+
 
 engine = pyttsx3.init('espeak') #engine = pyttsx3.init('sapi5')------>for windows user
 voices = engine.getProperty('voices')
@@ -19,11 +30,24 @@ engine.setProperty('volume', 1.0)
 r = sr.Recognizer()
 
 def speak(text):
-    engine.say(text)
-    engine.runAndWait()
-    time.sleep(0.05)
+    if USE_GTTS:
+        try:
+            tts = gTTS(text=text, lang='en')
+            with tempfile.NamedTemporaryFile(delete=False, suffix=".mp3") as fp:
+                tts.save(fp.name)
+                if USE_PLAYSOUND:
+                    playsound(fp.name, block=True)
+                else:
+                    engine.say(text)
+                    engine.runAndWait()  
+        finally:
+            time.sleep(0.05)
+    else:
+        engine.say(text)
+        engine.runAndWait()
+        time.sleep(0.05)
 
-def wishMe():
+def basicwishMe():
     hour= int(datetime.datetime.now().hour)
     if hour>=0 and hour<12:
         speak("hello sir! good morning")
@@ -281,6 +305,6 @@ def listen_and_respond():
 # speak('initializing sequence.')
 # speak('          ')
 # speak('complete')
-wishMe()
-speak('what can i do for you') 
+basicwishMe()
+speak(wishMe(wish)) 
 listen_and_respond()

@@ -1,6 +1,12 @@
 import speech_recognition as sr
 import pyttsx3
 import time
+import tempfile
+from gtts import gTTS
+from playsound3 import playsound 
+
+USE_GTTS = True  # Set to True to use gTTS, False to use pyttsx3
+USE_PLAYSOUND = True  # Set to True to use playsound, False to use pyttsx3
 
 engine = pyttsx3.init('espeak')
 voices = engine.getProperty('voices')
@@ -11,10 +17,23 @@ engine.setProperty('volume', 1.0)
 
 def speak(text):
     """Speak out the text using pyttsx3."""
-    engine.say(text)
-    engine.runAndWait()
-    time.sleep(0.05)
-    
+    if USE_GTTS:
+        try:
+            tts = gTTS(text=text, lang='en')
+            with tempfile.NamedTemporaryFile(delete=False, suffix=".mp3") as fp:
+                tts.save(fp.name)
+                if USE_PLAYSOUND:
+                    playsound(fp.name)
+                else:
+                    engine.say(text)
+                    engine.runAndWait()
+        finally:
+            time.sleep(0.05)
+    else:
+        engine.say(text)
+        engine.runAndWait()
+        time.sleep(0.05)
+        
 def listen_and_respond():
     """Listen to the microphone input and respond"""
     r = sr.Recognizer()
